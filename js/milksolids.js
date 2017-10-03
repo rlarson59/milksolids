@@ -1,80 +1,146 @@
-const tabPerCalf = document.getElementById("tabPerCalf");
+const tabPerSingle = document.getElementById("tabPerSingle");
 const tabPerBatch = document.getElementById("tabPerBatch");
 
-const frmPerCalf = document.getElementById("frmPerCalf");
+const frmPerSingle = document.getElementById("frmPerSingle");
 const frmPerBatch = document.getElementById("frmPerBatch");
 
-const btnCalfReset = document.getElementById("btnCalfReset");
-const btnCalfCalculate = document.getElementById("btnCalfCalculate");
-//const txtcalfVolume = document.getElementById("calfVolume");
-//const txtcalfSolidsPct = document.getElementById("calfSolidsPct");
-//const txtcalfSolidsAmt = document.getElementById("calfSolidsAmt");
+const btnSingleReset = document.getElementById("btnSingleReset");
+const btnSingleCalculate = document.getElementById("btnSingleCalculate");
 
-//const btnBatchfReset = document.getElementById("btnBatchReset");
-//const btnBatchCalculate = document.getElementById("btnBatchCalculate");
+const btnBatchfReset = document.getElementById("btnBatchReset");
+const btnBatchCalculate = document.getElementById("btnBatchCalculate");
 
 const footerLogo = document.getElementById("footerLogo");
 
 
-tabPerCalf.addEventListener("click", function(event) {
+tabPerSingle.addEventListener("click", function(event) {
     event.preventDefault();
     frmPerBatch.setAttribute("class", "hide"); 
-    frmPerCalf.setAttribute("class", "content");
-});
+    frmPerSingle.setAttribute("class", "content");
+    });
 
 tabPerBatch.addEventListener("click", function(event) {
     event.preventDefault();
-    frmPerCalf.setAttribute("class", "hide"); 
+    frmPerSingle.setAttribute("class", "hide"); 
     frmPerBatch.setAttribute("class", "content");
-});
+    });
 
-btnCalfReset.addEventListener("click", function() {
-    document.getElementById("calfVolume").value = "";
-    document.getElementById("calfSolidsPct").value = "";
-    document.getElementById("calfSolidsAmt").value = "";    
+btnSingleReset.addEventListener("click", function() {
+    document.getElementById("singleVolume").value = "";
+    document.getElementById("singleSolidsPct").value = "";
+    document.getElementById("singleSolidsAmt").value = "";    
+    document.getElementById("lblOunces").innerHTML = "";  
+    document.getElementById("singleVolume").style.backgroundColor = "#fff"
+    document.getElementById("singleSolidsPct").style.backgroundColor = "#fff"
+    document.getElementById("singleSolidsAmt").style.backgroundColor = "#fff"
     generateFooterLogo();
-    
 });
 
-btnCalfCalculate.addEventListener("click", function() {
-    //index = 0;
-    let indexVolume = checkTextEntry(document.getElementById("calfVolume").value.trim());
-    let indexPct = checkTextEntry(document.getElementById("calfSolidsPct").value.trim());
-    let indexAmt = checkTextEntry(document.getElementById("calfSolidsAmt").value.trim());    
+btnBatchReset.addEventListener("click", function() {
+    document.getElementById("batchVolume").value = "";
+    document.getElementById("batchSolidsPct").value = "";
+    document.getElementById("batchSolidsAmt").value = "";   
+    document.getElementById("lblGallons").innerHTML = "";
+    document.getElementById("batchleVolume").style.backgroundColor = "#fff"
+    document.getElementById("batchSolidsPct").style.backgroundColor = "#fff"
+    document.getElementById("batchSolidsAmt").style.backgroundColor = "#fff"
+    generateFooterLogo();
+});
+
+btnSingleCalculate.addEventListener("click", function() {
+    document.getElementById("singleVolume").style.backgroundColor = "#fff"
+    document.getElementById("singleSolidsPct").style.backgroundColor = "#fff"
+    document.getElementById("singleSolidsAmt").style.backgroundColor = "#fff"
+    let indexVolume = checkTextEntry(document.getElementById("singleVolume").value.trim());
+    let indexPct = checkTextEntry(document.getElementById("singleSolidsPct").value.trim());
+    let indexAmt = checkTextEntry(document.getElementById("singleSolidsAmt").value.trim());    
     let indexSum = indexVolume + indexPct + indexAmt;
     if (indexSum == 0)
     {
-        document.getElementById("lblMessage").innerHTML = 'At least one of the parameters needs to be blank. ';
+        document.getElementById("lblSingleMessage").innerHTML = 'At least one of the parameters needs to be blank. ';
     }
     else if (indexSum >= 2)
     {
-        document.getElementById("lblMessage").innerHTML = 'Make sure two parameters contain numbers and the third one is blank. ';        
+        document.getElementById("lblSingleMessage").innerHTML = 'Make sure two parameters contain numbers and the third one is blank. ';        
     }
     else
     {
+        let valueVolume = Number(document.getElementById("singleVolume").value.trim());
+        let valuePct = Number(document.getElementById("singleSolidsPct").value.trim());
+        let valueAmt = Number(document.getElementById("singleSolidsAmt").value.trim());
         if (indexVolume == 1)
         {
-            let valuePct = Number(document.getElementById("calfSolidsPct").value.trim());
-            let valueAmt = Number(document.getElementById("calfSolidsAmt").value.trim());
-            document.getElementById("calfVolume").value = ((valueAmt / (valuePct/100)) / 2.15).toFixed(2);
+            valueVolume = ((valueAmt / (valuePct/100)) / 2.15).toFixed(2); 
+            document.getElementById("singleVolume").value = valueVolume;
+            document.getElementById("singleVolume").style.backgroundColor = "lightblue"
+            document.getElementById("lblOunces").innerHTML = "";  
         }
         if (indexPct == 1)
         {
-            let valueVolume = Number(document.getElementById("calfVolume").value.trim());
-            let valueAmt = Number(document.getElementById("calfSolidsAmt").value.trim());
-            document.getElementById("calfSolidsPct").value = (valueAmt / (valueVolume * 2.15)*100).toFixed(2);
+            valuePct = (valueAmt / (valueVolume * 2.15)*100).toFixed(1);
+            document.getElementById("singleSolidsPct").value = valuePct;
+            document.getElementById("singleSolidsPct").style.backgroundColor = "lightblue"
+            document.getElementById("lblOunces").innerHTML = "";  
+            
         }
         if (indexAmt == 1)
         {
-            let valueVolume = Number(document.getElementById("calfVolume").value.trim());
-            let valuePct = Number(document.getElementById("calfSolidsPct").value.trim());
-            document.getElementById("calfSolidsAmt").value = ((valuePct/100) * (valueVolume * 2.15)).toFixed(3);
+            valueAmt = ((valuePct/100) * (valueVolume * 2.15)).toFixed(3);
+            document.getElementById("singleSolidsAmt").value = valueAmt;
+            document.getElementById("singleSolidsAmt").style.backgroundColor = "lightblue"
+            document.getElementById("lblOunces").innerHTML = (valueAmt*16).toFixed(1) + " oz";
         }
     }
     generateFooterLogo();
     
 });
 
+btnBatchCalculate.addEventListener("click", function() {
+    document.getElementById("batchVolume").style.backgroundColor = "#fff"
+    document.getElementById("batchSolidsPct").style.backgroundColor = "#fff"
+    document.getElementById("batchSolidsAmt").style.backgroundColor = "#fff"
+    let indexVolume = checkTextEntry(document.getElementById("batchVolume").value.trim());
+    let indexPct = checkTextEntry(document.getElementById("batchSolidsPct").value.trim());
+    let indexAmt = checkTextEntry(document.getElementById("batchSolidsAmt").value.trim());    
+    let indexSum = indexVolume + indexPct + indexAmt;
+    if (indexSum == 0)
+    {
+        document.getElementById("lblBatchMessage").innerHTML = 'At least one of the parameters needs to be blank. ';
+    }
+    else if (indexSum >= 2)
+    {
+        document.getElementById("lblBatchMessage").innerHTML = 'Make sure two parameters contain numbers and the third one is blank. ';        
+    }
+    else
+    {
+        let valueVolume = Number(document.getElementById("batchVolume").value.trim());
+        let valuePct = Number(document.getElementById("batchSolidsPct").value.trim());
+        let valueAmt = Number(document.getElementById("batchSolidsAmt").value.trim());
+        if (indexVolume == 1)
+        {
+            valueVolume = ((valueAmt / (valuePct/100)) / 2.15).toFixed(1); 
+            document.getElementById("batchVolume").value = valueVolume;
+            document.getElementById("batchVolume").style.backgroundColor = "lightblue"
+            document.getElementById("lblGallons").innerHTML = (valueVolume/8.3).toFixed(1) + " gal";
+        }
+        if (indexPct == 1)
+        {
+            valuePct = (valueAmt / (valueVolume * 2.15)*100).toFixed(1);
+            document.getElementById("batchSolidsPct").value = valuePct;
+            document.getElementById("batchSolidsPct").style.backgroundColor = "lightblue"
+            document.getElementById("lblGallons").innerHTML = "";  
+        }
+        if (indexAmt == 1)
+        {
+            valueAmt = ((valuePct/100) * (valueVolume * 2.15)).toFixed(1);
+            document.getElementById("batchSolidsAmt").value = valueAmt;
+            document.getElementById("batchSolidsAmt").style.backgroundColor = "lightblue"
+            document.getElementById("lblGallons").innerHTML = "";  
+        }
+    }
+    generateFooterLogo();
+    
+});
 
 
 
@@ -84,24 +150,12 @@ btnCalfCalculate.addEventListener("click", function() {
     {
         let index = 0;
         //let _blnTextOK = true;
-        document.getElementById("lblMessage").innerHTML = '';
+        document.getElementById("lblSingleMessage").innerHTML = '';
+        document.getElementById("lblBatchMessage").innerHTML = '';    
         if (isNaN(inputtedText) || inputtedText == '')
         {
-            //document.getElementById("lblMessage").innerHTML += 'Please enter an integer from 1 to 25. ';
-            //_blnTextOK = false;
             index += 1;
         }
-        //if (inputtedText == '')
-        //{
-        //    //document.getElementById("lblMessage").innerHTML += 'Please enter an integer from 1 to 25. ';
-        //    _blnTextOK = false;
-        //}        
-        //if (document.getElementById("txtEnterText").value.trim() == '')
-        //{
-        //    document.getElementById("lblMessage").innerHTML += 'Please enter some text.' ;       
-        //    _blnTextOK = false;
-        //}
-        //return _blnTextOK
         return index;
     }
 
@@ -151,4 +205,3 @@ function generateFooterLogo()
 
 
 
-generateRandomNumber()
