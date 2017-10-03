@@ -41,7 +41,7 @@ btnBatchReset.addEventListener("click", function() {
     document.getElementById("batchSolidsPct").value = "";
     document.getElementById("batchSolidsAmt").value = "";   
     document.getElementById("lblGallons").innerHTML = "";
-    document.getElementById("batchleVolume").style.backgroundColor = "#fff"
+    document.getElementById("batchVolume").style.backgroundColor = "#fff"
     document.getElementById("batchSolidsPct").style.backgroundColor = "#fff"
     document.getElementById("batchSolidsAmt").style.backgroundColor = "#fff"
     generateFooterLogo();
