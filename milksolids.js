@@ -49,6 +49,55 @@ tabPerBatch.addEventListener("click", function(event) {
     generateFooterLogo();
     });
 
+btnReset.addEventListener("click", function() {
+    clearInputs();
+    unknownParameter = "";
+    changedParameter = "";
+    document.getElementById("lblOunces").innerHTML = "";  
+    document.getElementById("lblGallons").innerHTML = "";
+    generateFooterLogo();
+});
+
+btnCalculate.addEventListener("click", function() {
+    if (tabType == "Single")
+    {
+        if (unknownParameter != "")
+        {
+            if (changedParameter != unknownParameter)
+            {
+                updateUnknownSingleParameter();
+            }
+            else
+            {
+                processSingleParameters();
+            }      
+        }
+        else
+        {
+            processSingleParameters()
+        }
+    }
+    else
+    {
+          if (unknownParameter != "")
+          {
+            if (changedParameter != unknownParameter)
+            {
+                updateUnknownBatchParameter();
+            }
+            else
+            {
+                processBatchParameters();
+            }      
+          }
+          else
+          {
+              processBatchParameters()
+          }        
+    }
+    generateFooterLogo();
+});    
+
 btnSingleReset.addEventListener("click", function() {
     clearInputs();
     unknownParameter = "";

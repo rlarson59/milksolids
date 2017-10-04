@@ -74,10 +74,13 @@
             <label id="lblOunces" style="text-align: right; float:right;" ></label>
         </p>
         <br/>
+<!--
         <p>
+            <label style="width:100px;"></label>    
             <input type="button" id="btnSingleReset" value="Reset" style="margin-right: 20px;">
             <input type="button" id="btnSingleCalculate" value="Calculate" >
         </p>
+-->
     </form>  
 	<form id="frmPerBatch"  style="display:none;">
         <p>
@@ -96,15 +99,20 @@
             <label for="batchSolidsAmt">Solids Total lb</label>    
             <input name="textinput" id="batchSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="text-align: right;">    
         </p>
-        <br/>
-        <p>
+<!--        <p>
             <label style="width:100px;"></label>    
-            <input type="button" id="btnBatchReset" value="Reset" style="margin-right:5px;">
+            <input type="button" id="btnBatchReset" value="Reset" style="margin-right:25px;">
             <input type="button" id="btnBatchCalculate" value="Calculate">
-        </p>
+        </p>-->
     </form>      
     <br/>
+    <div style="text-align: center;">
+    <input type="button" id="btnReset" value="Reset" style="margin-right: 20px">
+    <input type="button" id="btnCalculate" value="Calculate">
+    </div>    
+    <br/>
     <label id="lblMessage" style="color:crimson;"></label>
+    <br/>
 </div>   
 <!--
     <form id="frmPerSingle" class="content">
