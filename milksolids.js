@@ -98,61 +98,6 @@ btnCalculate.addEventListener("click", function() {
     generateFooterLogo();
 });    
 
-/*
-btnSingleReset.addEventListener("click", function() {
-    clearInputs();
-    unknownParameter = "";
-    changedParameter = "";
-    document.getElementById("lblOunces").innerHTML = "";  
-    generateFooterLogo();
-});
-
-btnBatchReset.addEventListener("click", function() {
-    clearInputs();
-    unknownParameter = "";
-    changedParameter = "";
-    document.getElementById("lblGallons").innerHTML = "";
-    generateFooterLogo();
-});
-
-btnSingleCalculate.addEventListener("click", function() {
-  if (unknownParameter != "")
-  {
-    if (changedParameter != unknownParameter)
-    {
-        updateUnknownSingleParameter();
-    }
-    else
-    {
-        processSingleParameters();
-    }      
-  }
-  else
-  {
-      processSingleParameters()
-  }
-  generateFooterLogo();
-});
-
-btnBatchCalculate.addEventListener("click", function() {
-  if (unknownParameter != "")
-  {
-    if (changedParameter != unknownParameter)
-    {
-        updateUnknownBatchParameter();
-    }
-    else
-    {
-        processBatchParameters();
-    }      
-  }
-  else
-  {
-      processBatchParameters()
-  }
-  generateFooterLogo();
-});
-*/
 
 //*******************
 //Functions

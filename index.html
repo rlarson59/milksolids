@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -75,13 +74,6 @@
             <label id="lblOunces" style="text-align: right; float:right;" ></label>
         </p>
         <br/>
-<!--
-        <p>
-            <label style="width:100px;"></label>    
-            <input type="button" id="btnSingleReset" value="Reset" style="margin-right: 20px;">
-            <input type="button" id="btnSingleCalculate" value="Calculate" >
-        </p>
--->
     </form>  
 	<form id="frmPerBatch"  style="display:none;">
         <p>
@@ -100,81 +92,16 @@
             <label for="batchSolidsAmt">Solids Total lb</label>    
             <input name="textinput" id="batchSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="text-align: right;">    
         </p>
-<!--        <p>
-            <label style="width:100px;"></label>    
-            <input type="button" id="btnBatchReset" value="Reset" style="margin-right:25px;">
-            <input type="button" id="btnBatchCalculate" value="Calculate">
-        </p>-->
     </form>      
     <br/>
     <div style="text-align: center;">
-    <input type="button" id="btnReset" value="Reset" style="margin-right: 20px">
-    <input type="button" id="btnCalculate" value="Calculate">
+        <input type="button" id="btnReset" value="Reset" style="margin-right: 20px">
+        <input type="button" id="btnCalculate" value="Calculate">
     </div>    
     <br/>
     <label id="lblMessage" style="color:crimson;"></label>
     <br/>
 </div>   
-<!--
-    <form id="frmPerSingle" class="content">
-		<p>Enter values for two of the parameters below. Click on Calculate to solve for the third parameter.</p>
-        <br/>
-        <div class="clear-float">
-             <label for="singleVolume" >Quarts / feeding</label>
-             <input name="textinput" id="singleVolume" type="number" onchange="valueVolumeChanged()" style="text-align: right;">
-        </div>
-        <div class="clear-float">
-              <label for="singleSolidsPct" >Solids %</label>
-              <input name="textinput" id="singleSolidsPct" type="number" onchange="valueSolidsPctChanged()" style="text-align: right;" >    
-        </div>
-        <div class="clear-float">
-            <label for="singleSolidsAmt"  >Solids lb / feeding</label>    
-            <input name="textinput" id="singleSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="text-align: right;" >    
-        </div>
-        <div class="clear-float">
-            <label ></label>
-            <label id="lblOunces" style="text-align: right; float:right;" ></label>
-        </div>    
-        <label id="lblSingleMessage" style="color:crimson;"></label>
-        <br/>
-        <br/>
-        <div class="form-inline" style="float:right;">
-            <input type="button" id="btnSingleReset" value="Reset" style="margin-right:25px;">
-            <input type="button" id="btnSingleCalculate" value="Calculate">
-        </div>
-        <br/>    
-    </form>
-
-
-    <form id="frmPerBatch" style="display:none;">
-        <div class="clear-float">
-             <label for="batchVolume">Water Total lb</label>
-              <input name="textinput" id="batchVolume" type="number" onchange="valueVolumeChanged()" style="text-align: right;">
-        </div>
-        <div class="clear-float" style="height: 20px;">
-            <label for="lblGallons"></label>
-            <label id="lblGallons" style="text-align: right; float:right;" ></label>
-        </div>  
-        <div class="clear-float">
-              <label for="batchSolidsPct" >Solids %</label>
-              <input name="textinput" id="batchSolidsPct" type="number" onchange="valueSolidsPctChanged()" style="text-align: right;">    
-        </div>
-        <div class="clear-float">
-            <label for="batchSolidsAmt">Solids Total lb</label>    
-            <input name="textinput" id="batchSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="text-align: right;">    
-        </div>
-        <label id="lblBatchMessage" style="color:crimson;"></label>
-        <br/>
-        <br/>
-        <div class="form-inline" style="float:right;">
-            <input type="button" id="btnBatchReset" value="Reset" style="margin-right:25px;">
-            <input type="button" id="btnBatchCalculate" value="Calculate">
-        </div>
-        <br/>    
-    </form>
- 
--->
-    <br/>
     <br/>  
     <br/>
 <img id="footerLogo" src="css/MSG_AN_logo.jpg" alt="Milk Specialties" style="width:200px; height:100px; display:block; margin: 0 auto;">    
@@ -189,195 +116,3 @@
 
 </body>
 </html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">    
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Milk Solids Calculator</title>
-    
-<!--  
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
--->
-
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>    
-
-<!--
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Permanent+Marker" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
--->
-
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-<link rel="stylesheet" href="css/customstyles.css">    
-<style>    
-    input[type="number"]::-webkit-outer-spin-button,
-    input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-        input[type="number"] {
-        -moz-appearance: textfield;
-    }
-</style>
-
-</head>
-<body>
-	<header>
-		<h3>Milk Specialties Milk Solids Calculator</h3>
-		<nav>
-			<ul>
-				<li id="tabPerSingle"><a href="">Per Feeding</a></li>
-				<li id="tabPerBatch"><a href="">Per Batch</a></li>
-			</ul>
-		</nav>
-	</header>
-<div id="divPerSingle" class="content">
-    <label>Enter values for two of the parameters below. <br/>Click on Calculate to solve for the third parameter.</label>
-    <br/>
-	<form id="frmPerSingle" >
-        <p>
-             <label for="singleVolume" >Quarts / feeding</label>
-             <input name="textinput" id="singleVolume" type="number" onchange="valueVolumeChanged()" style="text-align: right;">
-        </p>
-        <p>
-              <label for="singleSolidsPct" >Solids %</label>
-              <input name="textinput" id="singleSolidsPct" type="number" onchange="valueSolidsPctChanged()" style="text-align: right;" >    
-        </p>
-        <p>
-            <label for="singleSolidsAmt"  >Solids lb / feeding</label>    
-            <input name="textinput" id="singleSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="text-align: right;" >    
-        </p>
-        <p>
-            <label style="width:100px;"></label>
-            <label id="lblOunces" style="text-align: right; float:right;" ></label>
-        </p>
-        <br/>
-<!--
-        <p>
-            <label style="width:100px;"></label>    
-            <input type="button" id="btnSingleReset" value="Reset" style="margin-right: 20px;">
-            <input type="button" id="btnSingleCalculate" value="Calculate" >
-        </p>
--->
-    </form>  
-	<form id="frmPerBatch"  style="display:none;">
-        <p>
-            <label for="batchVolume">Water Total lb</label>
-            <input name="textinput" id="batchVolume" type="number" onchange="valueVolumeChanged()" style="text-align: right;">
-        </p>
-        <p style="height: 20px;">
-            <label for="lblGallons" style="width:100px;"></label>
-            <label id="lblGallons" style="text-align: right; float:right;" ></label>
-        </p>
-        <p>
-              <label for="batchSolidsPct" >Solids %</label>
-              <input name="textinput" id="batchSolidsPct" type="number" onchange="valueSolidsPctChanged()" style="text-align: right;">    
-        </p>
-        <p>
-            <label for="batchSolidsAmt">Solids Total lb</label>    
-            <input name="textinput" id="batchSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="text-align: right;">    
-        </p>
-<!--        <p>
-            <label style="width:100px;"></label>    
-            <input type="button" id="btnBatchReset" value="Reset" style="margin-right:25px;">
-            <input type="button" id="btnBatchCalculate" value="Calculate">
-        </p>-->
-    </form>      
-    <br/>
-    <div style="text-align: center;">
-    <input type="button" id="btnReset" value="Reset" style="margin-right: 20px">
-    <input type="button" id="btnCalculate" value="Calculate">
-    </div>    
-    <br/>
-    <label id="lblMessage" style="color:crimson;"></label>
-    <br/>
-</div>   
-<!--
-    <form id="frmPerSingle" class="content">
-		<p>Enter values for two of the parameters below. Click on Calculate to solve for the third parameter.</p>
-        <br/>
-        <div class="clear-float">
-             <label for="singleVolume" >Quarts / feeding</label>
-             <input name="textinput" id="singleVolume" type="number" onchange="valueVolumeChanged()" style="text-align: right;">
-        </div>
-        <div class="clear-float">
-              <label for="singleSolidsPct" >Solids %</label>
-              <input name="textinput" id="singleSolidsPct" type="number" onchange="valueSolidsPctChanged()" style="text-align: right;" >    
-        </div>
-        <div class="clear-float">
-            <label for="singleSolidsAmt"  >Solids lb / feeding</label>    
-            <input name="textinput" id="singleSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="text-align: right;" >    
-        </div>
-        <div class="clear-float">
-            <label ></label>
-            <label id="lblOunces" style="text-align: right; float:right;" ></label>
-        </div>    
-        <label id="lblSingleMessage" style="color:crimson;"></label>
-        <br/>
-        <br/>
-        <div class="form-inline" style="float:right;">
-            <input type="button" id="btnSingleReset" value="Reset" style="margin-right:25px;">
-            <input type="button" id="btnSingleCalculate" value="Calculate">
-        </div>
-        <br/>    
-    </form>
-
-
-    <form id="frmPerBatch" style="display:none;">
-        <div class="clear-float">
-             <label for="batchVolume">Water Total lb</label>
-              <input name="textinput" id="batchVolume" type="number" onchange="valueVolumeChanged()" style="text-align: right;">
-        </div>
-        <div class="clear-float" style="height: 20px;">
-            <label for="lblGallons"></label>
-            <label id="lblGallons" style="text-align: right; float:right;" ></label>
-        </div>  
-        <div class="clear-float">
-              <label for="batchSolidsPct" >Solids %</label>
-              <input name="textinput" id="batchSolidsPct" type="number" onchange="valueSolidsPctChanged()" style="text-align: right;">    
-        </div>
-        <div class="clear-float">
-            <label for="batchSolidsAmt">Solids Total lb</label>    
-            <input name="textinput" id="batchSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="text-align: right;">    
-        </div>
-        <label id="lblBatchMessage" style="color:crimson;"></label>
-        <br/>
-        <br/>
-        <div class="form-inline" style="float:right;">
-            <input type="button" id="btnBatchReset" value="Reset" style="margin-right:25px;">
-            <input type="button" id="btnBatchCalculate" value="Calculate">
-        </div>
-        <br/>    
-    </form>
- 
--->
-    <br/>
-    <br/>  
-    <br/>
-<img id="footerLogo" src="css/MSG_AN_logo.jpg" alt="Milk Specialties" style="width:200px; height:100px; display:block; margin: 0 auto;">    
-    
-    
-  <script src="js/milksolids.js"></script>
-
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <!-- Latest compiled and minified Bootstrap JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
-</body>
-</html>
->>>>>>> d01baf038a2716c830c33a56755a47c0dfd14d06
