@@ -22,8 +22,10 @@ tabPerSingle.addEventListener("click", function(event) {
     //frmPerBatch.setAttribute("class", "hide"); 
     frmPerBatch.style.display = "none";
     frmPerSingle.style.display = "block";
-    frmPerSingle.setAttribute("class", "content");
+    //divPerSingle.setAttribute("class", "content");
+    //frmPerSingle.setAttribute("class", "content");
     document.getElementById("lblOunces").innerHTML = ""; 
+    document.getElementById("lblSingleMessage").innerHTML = ""; 
     volumeFactor = 2.15;
     unknownParameter = "";
     changedParameter = "";        
@@ -37,7 +39,7 @@ tabPerBatch.addEventListener("click", function(event) {
     //frmPerSingle.setAttribute("class", "hide"); 
     frmPerSingle.style.display = "none";
     frmPerBatch.style.display = "block";
-    frmPerBatch.setAttribute("class", "content");
+    //frmPerBatch.setAttribute("class", "content");
     document.getElementById("lblGallons").innerHTML = "";
     volumeFactor = 1.0;
     unknownParameter = "";

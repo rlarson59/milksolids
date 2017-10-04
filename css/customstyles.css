@@ -1,7 +1,20 @@
 	<style>
+    * {
+        padding: 0;
+        margin: 0;
+        }
 		*, #content :first-child, #content :last-child {
 			margin: 0;
 		}
+
+        form  { display: table;      }
+        p     { display: table-row;  }
+        label { 
+            display: table-cell; 
+            padding-right: 10px;
+        }
+        input { display: table-cell; }
+
 		body {
 			font: 300 12px/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
 			//background: #044687;
@@ -82,13 +95,14 @@
 
         .clear-float label{
             float: left;
-            width:35%;
+            width:100px;
             margin: 4px 0;
-            padding-right: 15px;
+            padding-right: 5px;
         }
 
         clear-float input{
             float: right;
+            max-width: 25px;
             margin: 4px 0;
         }
 
@@ -98,8 +112,8 @@
 			z-index: 1;
 			clear: both;
 			//min-width: 300px;
-            max-width: 300px;
-			padding: 15px;
+            max-width: 325px;
+			padding: 10px;
 			border-radius: 10px;
 			box-shadow: 0px 0px 10px rgba(0,0,0,.5);
 			background: #fff;

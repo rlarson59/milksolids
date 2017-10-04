@@ -53,8 +53,40 @@
 			</ul>
 		</nav>
 	</header>
-	<form id="frmPerSingle" class="content">
+<div id="divPerSingle" class="content">
+    <label>Enter values for two of the parameters below. Click on Calculate to solve for the third parameter.</label>
+    <br/>
+	<form id="frmPerSingle" >
+        <p>
+             <label for="singleVolume" >Quarts / feeding</label>
+             <input name="textinput" id="singleVolume" type="number" onchange="valueVolumeChanged()" style="text-align: right;">
+        </p>
+        <p>
+              <label for="singleSolidsPct" >Solids %</label>
+              <input name="textinput" id="singleSolidsPct" type="number" onchange="valueSolidsPctChanged()" style="text-align: right;" >    
+        </p>
+        <p>
+            <label for="singleSolidsAmt"  >Solids lb / feeding</label>    
+            <input name="textinput" id="singleSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="text-align: right;" >    
+        </p>
+        <p>
+            <label></label>
+            <label id="lblOunces" style="text-align: right; float:right;" ></label>
+        </p>
+        <br/>
+        <p>
+            <label style="width:100px;"></label>    
+            <input type="button" id="btnSingleReset" value="Reset" style="margin-right: 20px;">
+            <input type="button" id="btnSingleCalculate" value="Calculate" >
+        </p>
+    </form>  
+    <br/>
+    <label id="lblSingleMessage" style="color:crimson;"></label>
+
+<!--
+    <form id="frmPerSingle" class="content">
 		<p>Enter values for two of the parameters below. Click on Calculate to solve for the third parameter.</p>
+        <br/>
         <div class="clear-float">
              <label for="singleVolume" >Quarts / feeding</label>
              <input name="textinput" id="singleVolume" type="number" onchange="valueVolumeChanged()" style="text-align: right;">
@@ -80,9 +112,9 @@
         </div>
         <br/>    
     </form>
+-->
 
     <form id="frmPerBatch" style="display:none;">
-		<p>Enter values for two of the parameters below. Click on Calculate to solve for the third parameter.</p>
         <div class="clear-float">
              <label for="batchVolume">Water Total lb</label>
               <input name="textinput" id="batchVolume" type="number" onchange="valueVolumeChanged()" style="text-align: right;">
@@ -108,6 +140,7 @@
         </div>
         <br/>    
     </form>
+</div>    
     <br/>
     <br/>  
     <br/>
