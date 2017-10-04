@@ -95,8 +95,9 @@
     </form>      
     <br/>
     <div style="text-align: center;">
-        <button ontouchstart="touchAvailable=true; Reset();" onclick="if(!touchAvailable) Reset();">Reset Button</button>
-        <input type="button" id="btnReset"  value="Reset" style="margin-right: 20px">
+        <script> touchAvailable = false; </script>    
+        <button ontouchstart="touchAvailable=true; Reset();" onclick="if(!touchAvailable) Reset();">Reset</button>
+        <!--<input type="button" id="btnReset"  value="Reset" style="margin-right: 20px">-->
         <input type="button" id="btnCalculate" value="Calculate">
     </div>    
     <br/>
@@ -107,7 +108,7 @@
     <br/>
 <img id="footerLogo" src="css/MSG_AN_logo.jpg" alt="Milk Specialties" style="width:200px; height:100px; display:block; margin: 0 auto;">    
     
-  <script> touchAvailable = false; </script>    
+  
   <script src="js/milksolids.js"></script>
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
