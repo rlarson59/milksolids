@@ -4,11 +4,13 @@ const tabPerBatch = document.getElementById("tabPerBatch");
 const frmPerSingle = document.getElementById("frmPerSingle");
 const frmPerBatch = document.getElementById("frmPerBatch");
 
-const btnSingleReset = document.getElementById("btnSingleReset");
-const btnSingleCalculate = document.getElementById("btnSingleCalculate");
+//const btnSingleReset = document.getElementById("btnSingleReset");
+//const btnSingleCalculate = document.getElementById("btnSingleCalculate");
 
-const btnBatchfReset = document.getElementById("btnBatchReset");
-const btnBatchCalculate = document.getElementById("btnBatchCalculate");
+//const btnBatchfReset = document.getElementById("btnBatchReset");
+//const btnBatchCalculate = document.getElementById("btnBatchCalculate");
+
+const btnCalculate = document.getElementById("btnCalculate");
 
 const footerLogo = document.getElementById("footerLogo");
 let unknownParameter = "";
