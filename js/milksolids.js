@@ -36,7 +36,8 @@ tabPerSingle.addEventListener("click", function(event) {
 tabPerBatch.addEventListener("click", function(event) {
     event.preventDefault();
     clearInputs();
-    //frmPerSingle.setAttribute("class", "hide"); 
+    //frmPerSingle.setAttribute("class", "hide");
+    //tabPerBatch.style.zIndex = "-3";
     frmPerSingle.style.display = "none";
     frmPerBatch.style.display = "block";
     //frmPerBatch.setAttribute("class", "content");
