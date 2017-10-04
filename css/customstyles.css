@@ -6,6 +6,15 @@
 		*, #content :first-child, #content :last-child {
 			margin: 0;
 		}
+
+        form  { display: table;      }
+        p     { display: table-row;  }
+        label { 
+            display: table-cell; 
+            padding-right: 10px;
+        }
+        input { display: table-cell; }
+
 		body {
 			font: 300 12px/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
 			//background: #044687;
