@@ -123,4 +123,9 @@
 		#content p {
 			margin: 20px 0;
 		}
+
+        .clickable-div
+        {
+            cursor: pointer;
+        }
 	</style>
