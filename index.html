@@ -3,11 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+  <!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Milk Solids Calculator</title>
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Permanent+Marker" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 
   <link rel="stylesheet" href="css/customstyles.css">
 
@@ -43,21 +48,21 @@
 		<p>Enter values for two of the parameters below. Click on Calculate to solve for the third parameter.</p>
         <div class="form-inline">
              <label for="singleVolume" style="width:70%;">Quarts / feeding</label>
-              <input id="singleVolume" type="number" style="width:25%;">
+             <input name="textinput" id="singleVolume" type="number" onchange="valueVolumeChanged()" style="width:25%; text-align: right;">
         </div>
         <div class="form-inline">
               <label for="singleSolidsPct" style="width:70%;">Solids %</label>
-              <input id="singleSolidsPct" type="number" style="width:25%;">    
+              <input name="textinput" id="singleSolidsPct" type="number" onchange="valueSolidsPctChanged()" style="width:25%; text-align: right;">    
         </div>
         <div class="form-inline">
             <label for="singleSolidsAmt" style="width:70%;">Solids lb / feeding</label>    
-            <input id="singleSolidsAmt" type="number" style="width:25%;">    
+            <input name="textinput" id="singleSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="width:25%; text-align: right;">    
         </div>
         <div class="form-inline">
             <label style="width:70%;"></label>
-            <label id="lblOunces" style="width:25%;"></label>
+            <label id="lblOunces" style="width:25%; text-align: right;"></label>
         </div>    
-        <label id="lblSingleMessage" style="color:crimson"></label>
+        <label id="lblSingleMessage" style="color:crimson;"></label>
         <br/>
         <br/>
         <div class="form-inline" style="float:right;">
@@ -71,21 +76,21 @@
 		<p>Enter values for two of the parameters below. Click on Calculate to solve for the third parameter.</p>
         <div class="form-inline">
              <label for="batchVolume" style="width:70%;">Water Total lb</label>
-              <input id="batchVolume" type="number" style="width:25%;">
+              <input name="textinput" id="batchVolume" type="number" onchange="valueVolumeChanged()" style="width:25%; text-align: right;">
         </div>
         <div class="form-inline">
             <label style="width:70%;"></label>
-            <label id="lblGallons" style="width:25%;"></label>
+            <label id="lblGallons" style="width:25%; text-align: right;"></label>
         </div>
         <div class="form-inline">
               <label for="batchSolidsPct" style="width:70%;">Solids %</label>
-              <input id="batchSolidsPct" type="number" style="width:25%;">    
+              <input name="textinput" id="batchSolidsPct" type="number" onchange="valueSolidsPctChanged()" style="width:25%; text-align: right;">    
         </div>
         <div class="form-inline">
             <label for="batchSolidsAmt" style="width:70%;">Solids Total lb</label>    
-            <input id="batchSolidsAmt" type="number" style="width:25%;">    
+            <input name="textinput" id="batchSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="width:25%; text-align: right;">    
         </div>
-        <label id="lblBatchMessage" style="color:crimson"></label>
+        <label id="lblBatchMessage" style="color:crimson;"></label>
         <br/>
         <br/>
         <div class="form-inline" style="float:right;">
@@ -97,7 +102,7 @@
     <br/>
     <br/>  
     <br/>
-<img id="footerLogo" src="css/MSG_AN_logo.jpg" alt="Milk Specialties" style="width:130px; height:65px; display:block; margin: 0 auto;">    
+<img id="footerLogo" src="css/MSG_AN_logo.jpg" alt="Milk Specialties" style="width:200px; height:100px; display:block; margin: 0 auto;">    
     
     
   <script src="js/milksolids.js"></script>
