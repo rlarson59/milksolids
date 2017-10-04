@@ -99,66 +99,19 @@ btnCalculate.addEventListener("click", function() {
 });    
 
 
-//going to a single Reset and Calculate button
-/*
-btnSingleReset.addEventListener("click", function() {
+//*******************
+//Functions
+//*******************
+
+function Reset()
+{
     clearInputs();
     unknownParameter = "";
     changedParameter = "";
     document.getElementById("lblOunces").innerHTML = "";  
-    generateFooterLogo();
-});
-
-btnBatchReset.addEventListener("click", function() {
-    clearInputs();
-    unknownParameter = "";
-    changedParameter = "";
     document.getElementById("lblGallons").innerHTML = "";
-    generateFooterLogo();
-});
-
-btnSingleCalculate.addEventListener("click", function() {
-  if (unknownParameter != "")
-  {
-    if (changedParameter != unknownParameter)
-    {
-        updateUnknownSingleParameter();
-    }
-    else
-    {
-        processSingleParameters();
-    }      
-  }
-  else
-  {
-      processSingleParameters()
-  }
-  generateFooterLogo();
-});
-
-btnBatchCalculate.addEventListener("click", function() {
-  if (unknownParameter != "")
-  {
-    if (changedParameter != unknownParameter)
-    {
-        updateUnknownBatchParameter();
-    }
-    else
-    {
-        processBatchParameters();
-    }      
-  }
-  else
-  {
-      processBatchParameters()
-  }
-  generateFooterLogo();
-});
-*/
-
-//*******************
-//Functions
-//*******************
+    generateFooterLogo();    
+}
 
 function valueVolumeChanged()
 {
