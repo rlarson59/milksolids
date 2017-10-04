@@ -98,6 +98,7 @@ btnCalculate.addEventListener("click", function() {
     generateFooterLogo();
 });    
 
+/*
 btnSingleReset.addEventListener("click", function() {
     clearInputs();
     unknownParameter = "";
@@ -151,6 +152,7 @@ btnBatchCalculate.addEventListener("click", function() {
   }
   generateFooterLogo();
 });
+*/
 
 //*******************
 //Functions
