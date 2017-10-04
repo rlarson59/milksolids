@@ -41,6 +41,8 @@
         -moz-appearance: textfield;
     }
 </style>
+    
+<script> touchAvailable = false; </script>      
 
 </head>
 <body>
@@ -95,7 +97,6 @@
     </form>      
     <br/>
     <div style="text-align: center;">
-        <script> touchAvailable = false; </script>    
         <button ontouchstart="touchAvailable=true; Reset();" onclick="if(!touchAvailable) Reset();">Reset</button>
         <!--<input type="button" id="btnReset"  value="Reset" style="margin-right: 20px">-->
         <input type="button" id="btnCalculate" value="Calculate">
