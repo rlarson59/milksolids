@@ -61,7 +61,8 @@ tabPerBatch.addEventListener("click", function(event) {
     generateFooterLogo();
 });*/
 
-btnCalculate.addEventListener("click", function() {
+
+/*btnCalculate.addEventListener("click", function() {
     if (tabType == "Single")
     {
         if (unknownParameter != "")
@@ -99,7 +100,10 @@ btnCalculate.addEventListener("click", function() {
           }        
     }
     generateFooterLogo();
-});    
+});    */
+
+btnCalculate.addEventListener("click", Calculate, false);
+btnCalculate.addEventListener("touchstart", Calculate, false);
 
 
 //*******************
@@ -114,6 +118,48 @@ function Reset()
     document.getElementById("lblOunces").innerHTML = "";  
     document.getElementById("lblGallons").innerHTML = "";
     generateFooterLogo();    
+}
+
+function Calculate(event)
+{
+    if (tabType == "Single")
+    {
+        if (unknownParameter != "")
+        {
+            if (changedParameter != unknownParameter)
+            {
+                updateUnknownSingleParameter();
+            }
+            else
+            {
+                processSingleParameters();
+            }      
+        }
+        else
+        {
+            processSingleParameters()
+        }
+    }
+    else
+    {
+          if (unknownParameter != "")
+          {
+            if (changedParameter != unknownParameter)
+            {
+                updateUnknownBatchParameter();
+            }
+            else
+            {
+                processBatchParameters();
+            }      
+          }
+          else
+          {
+              processBatchParameters()
+          }        
+    }
+    generateFooterLogo();
+    event.preventDefault();
 }
 
 function valueVolumeChanged()
