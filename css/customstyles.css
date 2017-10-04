@@ -80,6 +80,18 @@
 			font-weight: 500;
 		}
 
+        .clear-float label{
+            float: left;
+            width:35%;
+            margin: 4px 0;
+            padding-right: 15px;
+        }
+
+        clear-float input{
+            float: right;
+            margin: 4px 0;
+        }
+
 		.content {
 			position: relative;
             margin: auto;
