@@ -25,7 +25,7 @@ tabPerSingle.addEventListener("click", function(event) {
     //divPerSingle.setAttribute("class", "content");
     //frmPerSingle.setAttribute("class", "content");
     document.getElementById("lblOunces").innerHTML = ""; 
-    document.getElementById("lblSingleMessage").innerHTML = ""; 
+    document.getElementById("lblMessage").innerHTML = ""; 
     volumeFactor = 2.15;
     unknownParameter = "";
     changedParameter = "";        
@@ -41,6 +41,7 @@ tabPerBatch.addEventListener("click", function(event) {
     frmPerBatch.style.display = "block";
     //frmPerBatch.setAttribute("class", "content");
     document.getElementById("lblGallons").innerHTML = "";
+    document.getElementById("lblMessage").innerHTML = ""; 
     volumeFactor = 1.0;
     unknownParameter = "";
     changedParameter = "";
@@ -48,6 +49,58 @@ tabPerBatch.addEventListener("click", function(event) {
     generateFooterLogo();
     });
 
+btnReset.addEventListener("click", function() {
+    clearInputs();
+    unknownParameter = "";
+    changedParameter = "";
+    document.getElementById("lblOunces").innerHTML = "";  
+    document.getElementById("lblGallons").innerHTML = "";
+    generateFooterLogo();
+});
+
+btnCalculate.addEventListener("click", function() {
+    if (tabType == "Single")
+    {
+        if (unknownParameter != "")
+        {
+            if (changedParameter != unknownParameter)
+            {
+                updateUnknownSingleParameter();
+            }
+            else
+            {
+                processSingleParameters();
+            }      
+        }
+        else
+        {
+            processSingleParameters()
+        }
+    }
+    else
+    {
+          if (unknownParameter != "")
+          {
+            if (changedParameter != unknownParameter)
+            {
+                updateUnknownBatchParameter();
+            }
+            else
+            {
+                processBatchParameters();
+            }      
+          }
+          else
+          {
+              processBatchParameters()
+          }        
+    }
+    generateFooterLogo();
+});    
+
+
+//going to a single Reset and Calculate button
+/*
 btnSingleReset.addEventListener("click", function() {
     clearInputs();
     unknownParameter = "";
@@ -101,6 +154,7 @@ btnBatchCalculate.addEventListener("click", function() {
   }
   generateFooterLogo();
 });
+*/
 
 //*******************
 //Functions
@@ -228,11 +282,11 @@ function processSingleParameters()
         let indexSum = indexVolume + indexPct + indexAmt;
         if (indexSum == 0)
         {
-            document.getElementById("lblSingleMessage").innerHTML = 'At least one of the parameters needs to be blank. ';
+            document.getElementById("lblMessage").innerHTML = 'At least one of the parameters needs to be blank. ';
         }
         else if (indexSum >= 2)
         {
-            document.getElementById("lblSingleMessage").innerHTML = 'Make sure two parameters contain numbers and the third one is blank. ';        
+            document.getElementById("lblMessage").innerHTML = 'Make sure two parameters contain numbers and the third one is blank. ';        
         }
         else
         {
@@ -306,11 +360,11 @@ function processBatchParameters()
     let indexSum = indexVolume + indexPct + indexAmt;
     if (indexSum == 0)
     {
-        document.getElementById("lblBatchMessage").innerHTML = 'At least one of the parameters needs to be blank. ';
+        document.getElementById("lblMessage").innerHTML = 'At least one of the parameters needs to be blank. ';
     }
     else if (indexSum >= 2)
     {
-        document.getElementById("lblBatchMessage").innerHTML = 'Make sure two parameters contain numbers and the third one is blank. ';        
+        document.getElementById("lblMessage").innerHTML = 'Make sure two parameters contain numbers and the third one is blank. ';        
     }
     else
     {
@@ -380,8 +434,7 @@ function checkTextEntry(inputtedText)
 {
     let index = 0;
     //let _blnTextOK = true;
-    document.getElementById("lblSingleMessage").innerHTML = '';
-    document.getElementById("lblBatchMessage").innerHTML = '';    
+    document.getElementById("lblMessage").innerHTML = '';
     if (isNaN(inputtedText) || inputtedText == '')
     {
         index += 1;

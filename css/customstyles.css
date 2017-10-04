@@ -3,7 +3,7 @@
         padding: 0;
         margin: 0;
         }
-		*, #content :first-child, #content :last-child {
+		*, .content :first-child, .content :last-child {
 			margin: 0;
 		}
 
@@ -114,6 +114,7 @@
 			//min-width: 300px;
             max-width: 325px;
 			//padding: 5px;
+			padding: 5px;
 			border-radius: 10px;
 			//box-shadow: 0px 0px 10px rgba(0,0,0,.5);
 			background: #fff;
