@@ -54,26 +54,23 @@
 		</nav>
 	</header>
 <div id="divPerSingle" class="content">
-    <label>Enter values for two of the parameters below. Click on Calculate to solve for the third parameter.</label>
+    <label>Enter values for two of the parameters below. <br/>Click on Calculate to solve for the third parameter.</label>
     <br/>
 	<form id="frmPerSingle" >
         <p>
              <label for="singleVolume" >Quarts / feeding</label>
              <input name="textinput" id="singleVolume" type="number" onchange="valueVolumeChanged()" style="text-align: right;">
         </p>
-	<br/>	
         <p>
               <label for="singleSolidsPct" >Solids %</label>
               <input name="textinput" id="singleSolidsPct" type="number" onchange="valueSolidsPctChanged()" style="text-align: right;" >    
         </p>
-	<br/>	
         <p>
             <label for="singleSolidsAmt"  >Solids lb / feeding</label>    
             <input name="textinput" id="singleSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="text-align: right;" >    
         </p>
-	<br/>	
         <p>
-            <label></label>
+            <label style="width:100px;"></label>
             <label id="lblOunces" style="text-align: right; float:right;" ></label>
         </p>
         <br/>
@@ -83,9 +80,33 @@
             <input type="button" id="btnSingleCalculate" value="Calculate" >
         </p>
     </form>  
+	<form id="frmPerBatch"  style="display:none;">
+        <p>
+            <label for="batchVolume">Water Total lb</label>
+            <input name="textinput" id="batchVolume" type="number" onchange="valueVolumeChanged()" style="text-align: right;">
+        </p>
+        <p style="height: 20px;">
+            <label for="lblGallons" style="width:100px;"></label>
+            <label id="lblGallons" style="text-align: right; float:right;" ></label>
+        </p>
+        <p>
+              <label for="batchSolidsPct" >Solids %</label>
+              <input name="textinput" id="batchSolidsPct" type="number" onchange="valueSolidsPctChanged()" style="text-align: right;">    
+        </p>
+        <p>
+            <label for="batchSolidsAmt">Solids Total lb</label>    
+            <input name="textinput" id="batchSolidsAmt" type="number" onchange="valueSolidsAmtChanged()" style="text-align: right;">    
+        </p>
+        <br/>
+        <p>
+            <label style="width:100px;"></label>    
+            <input type="button" id="btnBatchReset" value="Reset" style="margin-right:25px;">
+            <input type="button" id="btnBatchCalculate" value="Calculate">
+        </p>
+    </form>      
     <br/>
-    <label id="lblSingleMessage" style="color:crimson;"></label>
-
+    <label id="lblMessage" style="color:crimson;"></label>
+</div>   
 <!--
     <form id="frmPerSingle" class="content">
 		<p>Enter values for two of the parameters below. Click on Calculate to solve for the third parameter.</p>
@@ -115,7 +136,7 @@
         </div>
         <br/>    
     </form>
--->
+
 
     <form id="frmPerBatch" style="display:none;">
         <div class="clear-float">
@@ -143,7 +164,8 @@
         </div>
         <br/>    
     </form>
-</div>    
+ 
+-->
     <br/>
     <br/>  
     <br/>
