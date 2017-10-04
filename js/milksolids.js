@@ -19,7 +19,9 @@ let tabType = "Single";
 tabPerSingle.addEventListener("click", function(event) {
     event.preventDefault();
     clearInputs();
-    frmPerBatch.setAttribute("class", "hide"); 
+    //frmPerBatch.setAttribute("class", "hide"); 
+    frmPerBatch.style.display = "none";
+    frmPerSingle.style.display = "block";
     frmPerSingle.setAttribute("class", "content");
     document.getElementById("lblOunces").innerHTML = ""; 
     volumeFactor = 2.15;
@@ -32,7 +34,9 @@ tabPerSingle.addEventListener("click", function(event) {
 tabPerBatch.addEventListener("click", function(event) {
     event.preventDefault();
     clearInputs();
-    frmPerSingle.setAttribute("class", "hide"); 
+    //frmPerSingle.setAttribute("class", "hide"); 
+    frmPerSingle.style.display = "none";
+    frmPerBatch.style.display = "block";
     frmPerBatch.setAttribute("class", "content");
     document.getElementById("lblGallons").innerHTML = "";
     volumeFactor = 1.0;
@@ -96,11 +100,25 @@ btnBatchCalculate.addEventListener("click", function() {
   generateFooterLogo();
 });
 
-
+//*******************
 //Functions
+//*******************
+
 function valueVolumeChanged()
 {
     changedParameter = "valueVolume";
+    if (tabType == "Batch")
+    {
+        let indexVolume = checkTextEntry(document.getElementById("batchVolume").value.trim());
+        if (indexVolume == 0)
+        {
+            document.getElementById("lblGallons").innerHTML = (document.getElementById("batchVolume").value/8.3).toFixed(1) + " gal";                        
+        }
+        else
+        {
+            document.getElementById("lblGallons").innerHTML = "";                       
+        }
+    }
     if (unknownParameter != "")
     {
         if (changedParameter != unknownParameter)
@@ -111,8 +129,8 @@ function valueVolumeChanged()
             }
             else
             {
-                updateUnknownBatchParameter();                                
-            }
+                updateUnknownBatchParameter(); 
+          }
         }
         else
         {
@@ -161,6 +179,18 @@ function valueSolidsPctChanged()
 function valueSolidsAmtChanged()
 {
     changedParameter = "valueAmt";
+    if (tabType == "Single")
+    {
+        let indexAmt = checkTextEntry(document.getElementById("singleSolidsAmt").value.trim());  
+        if (indexAmt == 0)
+        {
+            document.getElementById("lblOunces").innerHTML = document.getElementById("lblOunces").innerHTML = (document.getElementById("singleSolidsAmt").value*16).toFixed(1) + " oz";                     
+        }
+        else
+        {
+            document.getElementById("lblOunces").innerHTML = "";                       
+        }
+    }    
     if (unknownParameter != "")
     {
         if (changedParameter != unknownParameter)
@@ -213,7 +243,7 @@ function processSingleParameters()
                 valueVolume = ((valueAmt / (valuePct/100)) / volumeFactor).toFixed(2); 
                 document.getElementById("singleVolume").value = valueVolume;
                 document.getElementById("singleVolume").style.backgroundColor = "lightblue"
-                document.getElementById("lblOunces").innerHTML = "";  
+                //document.getElementById("lblOunces").innerHTML = "";  
             }
             if (indexPct == 1)
             {
@@ -221,7 +251,7 @@ function processSingleParameters()
                 valuePct = (valueAmt / (valueVolume * volumeFactor)*100).toFixed(1);
                 document.getElementById("singleSolidsPct").value = valuePct;
                 document.getElementById("singleSolidsPct").style.backgroundColor = "lightblue"
-                document.getElementById("lblOunces").innerHTML = "";  
+                //document.getElementById("lblOunces").innerHTML = "";  
             }
             if (indexAmt == 1)
             {
@@ -245,7 +275,7 @@ function updateUnknownSingleParameter()
             valueVolume = ((valueAmt / (valuePct/100)) / volumeFactor).toFixed(2); 
             document.getElementById("singleVolume").value = valueVolume;
             document.getElementById("singleVolume").style.backgroundColor = "lightblue"
-            document.getElementById("lblOunces").innerHTML = "";  
+            //document.getElementById("lblOunces").innerHTML = "";  
         }
         if (unknownParameter == "valuePct")
         {
@@ -253,7 +283,7 @@ function updateUnknownSingleParameter()
             valuePct = (valueAmt / (valueVolume * volumeFactor)*100).toFixed(1);
             document.getElementById("singleSolidsPct").value = valuePct;
             document.getElementById("singleSolidsPct").style.backgroundColor = "lightblue"
-            document.getElementById("lblOunces").innerHTML = "";  
+            //document.getElementById("lblOunces").innerHTML = "";  
             
         }
         if (unknownParameter == "valueAmt")
@@ -299,7 +329,7 @@ function processBatchParameters()
             valuePct = (valueAmt / (valueVolume * volumeFactor + valueAmt)*100).toFixed(1);
             document.getElementById("batchSolidsPct").value = valuePct;
             document.getElementById("batchSolidsPct").style.backgroundColor = "lightblue"
-            document.getElementById("lblGallons").innerHTML = "";  
+            //document.getElementById("lblGallons").innerHTML = "";  
         }
         if (indexAmt == 1)
         {
@@ -307,7 +337,7 @@ function processBatchParameters()
             valueAmt = ((valuePct/100) * (valueVolume * volumeFactor)).toFixed(1);
             document.getElementById("batchSolidsAmt").value = valueAmt;
             document.getElementById("batchSolidsAmt").style.backgroundColor = "lightblue"
-            document.getElementById("lblGallons").innerHTML = "";  
+            //document.getElementById("lblGallons").innerHTML = "";  
         }
     }    
 }
@@ -331,7 +361,7 @@ function updateUnknownBatchParameter()
             valuePct = (valueAmt / (valueVolume * volumeFactor + valueAmt)*100).toFixed(1);
             document.getElementById("batchSolidsPct").value = valuePct;
             document.getElementById("batchSolidsPct").style.backgroundColor = "lightblue"
-            document.getElementById("lblGallons").innerHTML = ""; 
+            //document.getElementById("lblGallons").innerHTML = ""; 
             
         }
         if (unknownParameter == "valueAmt")
@@ -340,7 +370,7 @@ function updateUnknownBatchParameter()
             valueAmt = ((valuePct/100) * (valueVolume * volumeFactor)).toFixed(1);
             document.getElementById("batchSolidsAmt").value = valueAmt;
             document.getElementById("batchSolidsAmt").style.backgroundColor = "lightblue"
-            document.getElementById("lblGallons").innerHTML = "";
+            //document.getElementById("lblGallons").innerHTML = "";
         }    
 }
     
