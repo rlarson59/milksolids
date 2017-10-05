@@ -62,7 +62,7 @@ tabPerBatch.addEventListener("click", function(event) {
 });*/
 
 
-/*btnCalculate.addEventListener("click", function() {
+btnCalculate.addEventListener("click", function() {
     if (tabType == "Single")
     {
         if (unknownParameter != "")
@@ -100,7 +100,7 @@ tabPerBatch.addEventListener("click", function(event) {
           }        
     }
     generateFooterLogo();
-});    */
+});    
 
 btnCalculate.addEventListener("click", Calculate, false);
 btnCalculate.addEventListener("touchstart", Calculate, false);
@@ -117,7 +117,8 @@ function Reset()
     changedParameter = "";
     document.getElementById("lblOunces").innerHTML = "";  
     document.getElementById("lblGallons").innerHTML = "";
-    generateFooterLogo();    
+    //event.preventDefault();
+    //generateFooterLogo();    
 }
 
 function Calculate(event)
