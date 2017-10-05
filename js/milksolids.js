@@ -170,7 +170,6 @@ function Calculate(event)
 
 function valueVolumeChanged()
 {
-    changedParameter = "valueVolume";
     if (tabType == "Batch")
     {
         let indexVolume = checkTextEntry(document.getElementById("batchVolume").value.trim());
@@ -182,6 +181,23 @@ function valueVolumeChanged()
         {
             document.getElementById("lblGallons").innerHTML = "";                       
         }
+    }
+    changedParameter = "valueVolume";
+
+    if (document.getElementById("batchVolume").value.trim() == "")
+    {
+        if (entryCounter > 0)
+        {
+            entryCounter -= 1;            
+        }
+        else
+        {
+            entryCounter +=1;
+        }
+    }
+    if (entryCounter == 2)
+    {
+        unknownParameter = "valueVolume";
     }
     if (unknownParameter != "")
     {
