@@ -115,15 +115,15 @@ btnCalculate.addEventListener("click", Calculate, false);
 //Functions
 //*******************
 
-function Reset()
+function Reset(event)
 {
     clearInputs();
     unknownParameter = "";
     changedParameter = "";
     document.getElementById("lblOunces").innerHTML = "";  
     document.getElementById("lblGallons").innerHTML = "";
-    //event.preventDefault();
-    //generateFooterLogo();    
+    event.preventDefault();
+    generateFooterLogo();    
 }
 
 function Calculate(event)
