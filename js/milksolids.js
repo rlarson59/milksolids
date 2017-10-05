@@ -17,6 +17,7 @@ let unknownParameter = "";
 let changedParameter = "";
 let volumeFactor = 2.15;
 let tabType = "Single";
+let entryCounter = 0;
 
 tabPerSingle.addEventListener("click", function(event) {
     event.preventDefault();
@@ -32,6 +33,7 @@ tabPerSingle.addEventListener("click", function(event) {
     unknownParameter = "";
     changedParameter = "";        
     tabType = "Single";
+    let entryCounter = 0;
     generateFooterLogo();
     });
 
@@ -49,6 +51,7 @@ tabPerBatch.addEventListener("click", function(event) {
     unknownParameter = "";
     changedParameter = "";
     tabType = "Batch";
+    let entryCounter = 0;
     generateFooterLogo();
     });
 
@@ -62,6 +65,7 @@ tabPerBatch.addEventListener("click", function(event) {
 });*/
 
 
+/*
 btnCalculate.addEventListener("click", function() {
     if (tabType == "Single")
     {
@@ -101,9 +105,10 @@ btnCalculate.addEventListener("click", function() {
     }
     generateFooterLogo();
 });    
+*/
 
 btnCalculate.addEventListener("click", Calculate, false);
-btnCalculate.addEventListener("touchstart", Calculate, false);
+//btnCalculate.addEventListener("touchstart", Calculate, false);
 
 
 //*******************
