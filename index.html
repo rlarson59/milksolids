@@ -7,11 +7,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Milk Solids Calculator</title>
     
-<!--  
+ 
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
--->
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
 <!--
@@ -50,7 +50,21 @@
         Calculate();
     });
     </script>-->
+<script type="text/javascript">
+    $(document).on('touchstart', function() {
+        detectTap = true; //detects all touch events
+    });
+    $(document).on('touchmove', function() {
+        detectTap = false; //Excludes the scroll events from touch events
+    });
+    $(document).on('click touchend', function(event) {
+    if (event.type == "click") detectTap = true; //detects click events 
+       if (detectTap){
+          //here you can write the function or codes you wanna execute on tap
 
+       }
+ });
+</script>    
 </head>
 <body>
 	<header>
@@ -118,7 +132,7 @@
     <br/>
 <img id="footerLogo" src="css/MSG_AN_logo.jpg" alt="Milk Specialties" style="width:200px; height:100px; display:block; margin: 0 auto;">    
     <br/>
-    <label>ver 171005-1100</label>    
+    <label>ver 171005-1845</label>    
   
   <script src="js/milksolids.js"></script>
 

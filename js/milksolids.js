@@ -107,7 +107,7 @@ btnCalculate.addEventListener("click", function() {
 });    
 */
 
-btnCalculate.addEventListener("click", Calculate, false);
+//btnCalculate.addEventListener("click", Calculate, false);
 //btnCalculate.addEventListener("touchstart", Calculate, false);
 
 
@@ -184,21 +184,6 @@ function valueVolumeChanged()
     }
     changedParameter = "valueVolume";
 
-    if (document.getElementById("batchVolume").value.trim() == "")
-    {
-        if (entryCounter > 0)
-        {
-            entryCounter -= 1;            
-        }
-        else
-        {
-            entryCounter +=1;
-        }
-    }
-    if (entryCounter == 2)
-    {
-        unknownParameter = "valueVolume";
-    }
     if (unknownParameter != "")
     {
         if (changedParameter != unknownParameter)
@@ -224,7 +209,20 @@ function valueVolumeChanged()
             }
         }
     }
+    else
+    {
+        if (tabType == "Single")
+        {
+            processSingleParameters();                
+        }
+        else
+        {
+            processBatchParameters();                                
+        }
+    }
+    
 }
+
 
 function valueSolidsPctChanged()
 {
