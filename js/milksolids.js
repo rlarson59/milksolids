@@ -10,7 +10,7 @@ const frmPerBatch = document.getElementById("frmPerBatch");
 //const btnBatchfReset = document.getElementById("btnBatchReset");
 //const btnBatchCalculate = document.getElementById("btnBatchCalculate");
 
-const btnCalculate = document.getElementById("btnCalculate");
+//const btnCalculate = document.getElementById("btnCalculate");
 
 const footerLogo = document.getElementById("footerLogo");
 let unknownParameter = "";
@@ -54,6 +54,13 @@ tabPerBatch.addEventListener("click", function(event) {
     let entryCounter = 0;
     generateFooterLogo();
     });
+
+btnCalculate.addEventListener("click", function() {
+    var calculate = document.getElementById('btnCalculate');
+        Hammer(calculate).on("tap", function(event) {
+           Calculate(event); 
+        });
+});
 
 /*btnReset.addEventListener("click", function() {
     clearInputs();
