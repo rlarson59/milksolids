@@ -209,7 +209,7 @@ function valueVolumeChanged()
             }
         }
     }
-    else
+/*    else
     {
         if (tabType == "Single")
         {
@@ -219,7 +219,7 @@ function valueVolumeChanged()
         {
             processBatchParameters();                                
         }
-    }
+    }*/
     
 }
 

@@ -47,10 +47,11 @@
 <!--<script type="text/javascript">
     $("a").click(function(event){
         event.preventDefault();
-        Calculate();
+        Calculate(event);
     });
     </script>-->
-<script type="text/javascript">
+    
+<!--<script type="text/javascript">
     $(document).on('touchstart', function() {
         detectTap = true; //detects all touch events
     });
@@ -61,10 +62,19 @@
     if (event.type == "click") detectTap = true; //detects click events 
        if (detectTap){
           Calculate(event);
-
        }
  });
+</script> -->
+<!--
+<script type="text/javascript">    
+$("#btnSolve").on({ 'touchEvent' : function(){ 
+    /* do something... */ 
+    Calculate(event);
+    } 
+  });    
 </script>    
+-->
+     
 </head>
 <body>
 	<header>
@@ -120,10 +130,11 @@
     <br/>
 
     <div onclick="" style="text-align: center;">    
-        <!--<input type="button" id="btnReset"  value="Reset" style="margin-right: 20px">-->
-        <a href="" onclick="Reset(event)" class="mimicbutton">Reset</a>
-        <a href="" onclick="Calculate(event)" class="mimicbutton" style="margin-left: 20px;">Calculate</a>
-        <!--<input type="button" id="btnCalculate" style="margin-left: 20px;" value="Calculate" >-->
+        <input type="button" id="btnReset" onclick="Reset(event)"  value="Reset" style="margin-right: 20px">
+        <!--<a href="" onclick="Reset(event)" class="mimicbutton">Reset</a>-->
+        <!--<a href="" onclick="Calculate(event)" class="mimicbutton" style="margin-left: 20px;">Calculate</a>-->
+        <input type="button" id="btnCalculate" onclick="Calculate(event)" style="margin-left: 20px;" value="Calculate" >
+        <!--<input type="button" id="btnSolve"  style="margin-left: 20px;" value="Solve" >-->
         <!--<a href=""><button type="button" id="btnCalculate"  style="margin-left: 20px;">Calculate</button></a>-->
     </div>    
     <br/>
@@ -132,7 +143,7 @@
     <br/>
 <img id="footerLogo" src="css/MSG_AN_logo.jpg" alt="Milk Specialties" style="width:200px; height:100px; display:block; margin: 0 auto;">    
     <br/>
-    <label>v1006-0650</label>    
+    <label>v1006-0800</label>    
   
   <script src="js/milksolids.js"></script>
 
