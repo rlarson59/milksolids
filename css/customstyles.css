@@ -7,16 +7,8 @@
 			margin: 0;
 		}
 
-        form  { display: table;      }
-        p     { display: table-row;  }
-        label { 
-            display: table-cell; 
-            padding-right: 10px;
-        }
-        input { display: table-cell; }
-
 		body {
-			font: 300 12px/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font: 300 10px/1.2 "Helvetica Neue", Helvetica, Arial, sans-serif;
 			//background: #044687;
             background: #9DB8D3;
 			margin: 20px;
@@ -107,12 +99,13 @@
         }
 
 		.content {
+            font-size: 14px;
 			position: relative;
             margin: auto;
-			//z-index: 1;
+			z-index: 4;
 			clear: both;
 			//min-width: 300px;
-            max-width: 325px;
+            max-width: 300px;
 			//padding: 5px;
 			padding: 5px;
 			border-radius: 10px;
@@ -123,4 +116,19 @@
 		#content p {
 			margin: 20px 0;
 		}
-	</style>
+        div.ui-input-text { 
+            width: 100px !important;
+        }
+
+/*.textinput {
+    text-align: center;
+}*/
+/*        form  { display: table;      }
+        p     { display: table-row;  }
+        label { 
+            display: table-cell; 
+            padding-right: 10px;
+            font-size: 10px;
+        }
+        input { display: table-cell; }*/
+</style>

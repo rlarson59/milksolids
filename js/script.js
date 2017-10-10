@@ -1,139 +1,87 @@
-const tabPerSingle = document.getElementById("tabPerSingle");
-const tabPerBatch = document.getElementById("tabPerBatch");
+$(document).on('pagecreate', function (evt) {
+    $("#tabPerSingle").on("tap", function (e) {
+        clearInputs();
+        frmPerBatch.style.display = "none";
+        frmPerSingle.style.display = "block";
+        document.getElementById("lblOunces").innerHTML = ""; 
+        document.getElementById("lblMessage").innerHTML = ""; 
+        volumeFactor = 2.15;
+        unknownParameter = "";
+        changedParameter = "";        
+        tabType = "Single";
+        let entryCounter = 0;
+        generateFooterLogo();
+    });
+    
+    $("#tabPerBatch").on("tap", function (e) {
+        clearInputs();
+        frmPerSingle.style.display = "none";
+        frmPerBatch.style.display = "block";
+        document.getElementById("lblGallons").innerHTML = "";
+        document.getElementById("lblMessage").innerHTML = ""; 
+        volumeFactor = 1.0;
+        unknownParameter = "";
+        changedParameter = "";
+        tabType = "Batch";
+        let entryCounter = 0;
+        generateFooterLogo();
+    });    
+    
+    $("#btnReset").on("tap", function (e) {
+        //e.preventDefault();
+        Reset();
+    });
 
-const frmPerSingle = document.getElementById("frmPerSingle");
-const frmPerBatch = document.getElementById("frmPerBatch");
+    $("#btnCalculate").on("tap", function (e) {
+        //e.preventDefault();
+        Calculate();
+    });
+    
+    $(document).on("change", "#singleVolume", function () {
+        valueVolumeChanged();
+    });
 
-//const btnSingleReset = document.getElementById("btnSingleReset");
-//const btnSingleCalculate = document.getElementById("btnSingleCalculate");
+        $(document).on("change", "#singleSolidsPct", function () {
+        valueSolidsPctChanged();
+    });
 
-//const btnBatchfReset = document.getElementById("btnBatchReset");
-//const btnBatchCalculate = document.getElementById("btnBatchCalculate");
+        $(document).on("change", "#singleSolidsAmt", function () {
+        valueSolidsAmtChanged();
+    });
+    
+   $(document).on("change", "#batchVolume", function () {
+        valueVolumeChanged();
+    });
 
-//const btnCalculate = document.getElementById("btnCalculate");
+        $(document).on("change", "#batchSolidsPct", function () {
+        valueSolidsPctChanged();
+    });
 
+        $(document).on("change", "#batchSolidsAmt", function () {
+        valueSolidsAmtChanged();
+    });    
+
+          
 const footerLogo = document.getElementById("footerLogo");
+
 let unknownParameter = "";
 let changedParameter = "";
 let volumeFactor = 2.15;
 let tabType = "Single";
-let entryCounter = 0;
-
-tabPerSingle.addEventListener("click", function(event) {
-    event.preventDefault();
-    clearInputs();
-    //frmPerBatch.setAttribute("class", "hide"); 
-    frmPerBatch.style.display = "none";
-    frmPerSingle.style.display = "block";
-    //divPerSingle.setAttribute("class", "content");
-    //frmPerSingle.setAttribute("class", "content");
-    document.getElementById("lblOunces").innerHTML = ""; 
-    document.getElementById("lblMessage").innerHTML = ""; 
-    volumeFactor = 2.15;
-    unknownParameter = "";
-    changedParameter = "";        
-    tabType = "Single";
-    let entryCounter = 0;
-    generateFooterLogo();
-    });
-
-tabPerBatch.addEventListener("click", function(event) {
-    event.preventDefault();
-    clearInputs();
-    //frmPerSingle.setAttribute("class", "hide");
-    //tabPerBatch.style.zIndex = "-3";
-    frmPerSingle.style.display = "none";
-    frmPerBatch.style.display = "block";
-    //frmPerBatch.setAttribute("class", "content");
-    document.getElementById("lblGallons").innerHTML = "";
-    document.getElementById("lblMessage").innerHTML = ""; 
-    volumeFactor = 1.0;
-    unknownParameter = "";
-    changedParameter = "";
-    tabType = "Batch";
-    let entryCounter = 0;
-    generateFooterLogo();
-    });
-
-btnCalculate.addEventListener("click", function() {
-    var calculate = document.getElementById('btnCalculate');
-        Hammer(calculate).on("tap", function(event) {
-           Calculate(event); 
-        });
-});
-
-/*btnReset.addEventListener("click", function() {
-    clearInputs();
-    unknownParameter = "";
-    changedParameter = "";
-    document.getElementById("lblOunces").innerHTML = "";  
-    document.getElementById("lblGallons").innerHTML = "";
-    generateFooterLogo();
-});*/
-
-
-/*
-btnCalculate.addEventListener("click", function() {
-    if (tabType == "Single")
-    {
-        if (unknownParameter != "")
-        {
-            if (changedParameter != unknownParameter)
-            {
-                updateUnknownSingleParameter();
-            }
-            else
-            {
-                processSingleParameters();
-            }      
-        }
-        else
-        {
-            processSingleParameters()
-        }
-    }
-    else
-    {
-          if (unknownParameter != "")
-          {
-            if (changedParameter != unknownParameter)
-            {
-                updateUnknownBatchParameter();
-            }
-            else
-            {
-                processBatchParameters();
-            }      
-          }
-          else
-          {
-              processBatchParameters()
-          }        
-    }
-    generateFooterLogo();
-});    
-*/
-
-//btnCalculate.addEventListener("click", Calculate, false);
-//btnCalculate.addEventListener("touchstart", Calculate, false);
-
-
-//*******************
-//Functions
-//*******************
-
-function Reset(event)
+let entryCounter = 0;    
+    
+function Reset()
 {
     clearInputs();
     unknownParameter = "";
     changedParameter = "";
     document.getElementById("lblOunces").innerHTML = "";  
     document.getElementById("lblGallons").innerHTML = "";
-    event.preventDefault();
+    //event.preventDefault();
     generateFooterLogo();    
 }
-
-function Calculate(event)
+   
+function Calculate()
 {
     if (tabType == "Single")
     {
@@ -172,8 +120,9 @@ function Calculate(event)
           }        
     }
     generateFooterLogo();
-    event.preventDefault();
+    //event.preventDefault();
 }
+
 
 function valueVolumeChanged()
 {
@@ -216,7 +165,7 @@ function valueVolumeChanged()
             }
         }
     }
-/*    else
+    else
     {
         if (tabType == "Single")
         {
@@ -226,7 +175,7 @@ function valueVolumeChanged()
         {
             processBatchParameters();                                
         }
-    }*/
+    }
     
 }
 
@@ -302,6 +251,7 @@ function valueSolidsAmtChanged()
         }
     }
 }
+
 
 function processSingleParameters()
 {
@@ -406,7 +356,7 @@ function processBatchParameters()
             valueVolume = ((valueAmt / (valuePct/100)) / volumeFactor - valueAmt).toFixed(1); 
             document.getElementById("batchVolume").value = valueVolume;
             document.getElementById("batchVolume").style.backgroundColor = "lightblue"
-            document.getElementById("lblGallons").innerHTML = (valueVolume/8.3).toFixed(1) + " gal";
+            document.getElementById("lblGallons").innerHTML = (valueVolume/8.3).toFixed(1) + " lb";
         }
         if (indexPct == 1)
         {
@@ -481,53 +431,48 @@ function clearInputs()
         x[i].value = "";
     } 
 }
-
-
-function generateFooterLogo()
-{
-    let num = Math.floor(Math.random()*10)
-    if (num == 0)
-    {
-        footerLogo.src="css/CalfAllyElectrolytes.JPG"
-    }
-    if (num == 1)
-    {
-        footerLogo.src="css/CalfAllyGel.JPG"
-    }
-    if (num == 2)
-    {
-        footerLogo.src="css/CalfAllyNT.JPG"
-    }
-    if (num == 3)
-    {
-        footerLogo.src="css/Excelerate.JPG"
-    }
-    if (num == 4)
-    {
-        footerLogo.src="css/MilkBridge.JPG"
-    }
-    if (num == 5)
-    {
-        footerLogo.src="css/MilkEnergizer.JPG"
-    }
-    if (num == 6)
-    {
-        footerLogo.src="css/MilkPrimer.JPG"
-    }
-    if (num == 7)
-    {
-        footerLogo.src="css/NutraStart.JPG"
-    }
-    if (num == 8)
-    {
-        footerLogo.src="css/OrganiCalf.JPG"
-    }
-    if (num == 9)
-    {
-        footerLogo.src="css/Turba.jpg"
-    }    
-
-}
-
-
-
+            function generateFooterLogo()
+            {
+                var num = Math.floor(Math.random()*10)
+                if (num == 0)
+                {
+                    footerLogo.src="images/CalfAllyElectrolytes.JPG"
+                }
+                if (num == 1)
+                {
+                    footerLogo.src="images/CalfAllyGel.JPG"
+                }
+                if (num == 2)
+                {
+                    footerLogo.src="images/CalfAllyNT.JPG"
+                }
+                if (num == 3)
+                {
+                    footerLogo.src="images/Excelerate.JPG"
+                }
+                if (num == 4)
+                {
+                    footerLogo.src="images/MilkBridge.JPG"
+                }
+                if (num == 5)
+                {
+                    footerLogo.src="images/MilkEnergizer.JPG"
+                }
+                if (num == 6)
+                {
+                    footerLogo.src="images/MilkPrimer.JPG"
+                }
+                if (num == 7)
+                {
+                    footerLogo.src="images/NutraStart.JPG"
+                }
+                if (num == 8)
+                {
+                    footerLogo.src="images/OrganiCalf.JPG"
+                }
+                if (num == 9)
+                {
+                    footerLogo.src="images/Turba.jpg"
+                }    
+            }
+        });   
