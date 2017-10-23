@@ -13,22 +13,25 @@
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>    
     
-    <link rel="stylesheet" href="css/customstyles.css">    
+    <link rel="stylesheet" href="css/customstyles.css">  
     
+ 
     <script>
+        //var encodedData = window.location.href.split('=')[1];
+        //var formatType = decodeURI(encodedData);
         let unknownParameter = "";
         let changedParameter = "";
         let volumeFactor = 2.15;
-        formatType = "Single";
+        formatType = "Batch";
         let entryCounter = 0;  
     </script>
-   
+
 </head>
 <body>
    <!-- This is the first page -->
-    <div id="pageSingle" data-role="page">
+    <div id="pageBatch" data-role="page">
       <div data-role="header" class="content" style="text-align: center;">
-          <h1 style="font-size: 20px;">Milk Solids Calculator<br/> Per Feeding Format</h1>
+          <h1 style="font-size: 20px;">Milk Solids Calculator <br/> Per Batch Format</h1>
       </div>
       <div class="content">
         <!--<label style="font-size: 14px; text-align: center;">Enter values for two of the parameters below. <br/>Click on Calculate to solve for the third parameter.</label>-->
@@ -37,8 +40,8 @@
             <!--Row 1-->
             <div class="ui-block-a"></div>    
             <div class="ui-block-b"></div>    
-            <div class="ui-block-c">Times/Day</div> 
-            <div class="ui-block-d">No. Calves</div> 
+            <div class="ui-block-c">No. Calves</div> 
+            <div class="ui-block-d">Times/Day</div> 
             
             <!--Row 2-->
             <div class="ui-block-a topborder leftborder rightborder"style="font-size: 11px; background: lightblue; padding: 3px;">Enter values for 2 of the parameters below.  Then<br/> click on Solve</div>    
@@ -46,17 +49,17 @@
             <div class="ui-block-c">
                 <div class="ui-grid-a">
                   <div class="ui-block-a" style="width;50px;">
-                    <input id="numPerDay" type="number" min=1 max=4 value=2 style="background: yellow; text-align: center;  width:55px;" >
+                    <input id="numCalves" type="number" value=10 style="background: yellow; text-align: center; width:55px;" >    
                   </div>      
                   <div class="ui-block-b" style="width;50px;">    
-
+                    
                   </div>
                 </div>    
             </div> 
             <div class="ui-block-d">
                 <div class="ui-grid-a">
                   <div class="ui-block-a" style="width;50px;">
-                    <input id="numCalves" type="number" value=10 style="background: yellow; text-align: center; width:55px;" >
+                    <input id="numPerDay" type="number" min=1 max=4 value=2 style="background: yellow; text-align: center;  width:55px;" >  
                   </div>      
                   <div class="ui-block-b" style="width;50px;">    
                   </div>
@@ -64,19 +67,19 @@
             </div>   
             
             <!--Row 3-->
-            <div class="ui-block-a leftborder rightborder" style="padding-left: 10px;"><strong>/ Feeding</strong></div>    
+            <div class="ui-block-a leftborder rightborder" style="padding-left: 10px;"><strong>/ Batch</strong></div>    
             <div class="ui-block-b"></div>    
             <div class="ui-block-c" style="width: 70px; padding-left: 10px;"><strong>/Calf/day</strong></div> 
-            <div class="ui-block-d" style="width: 70px; padding-left: 20px;"><strong>/ Batch</strong></div>     
+            <div class="ui-block-d" style="width: 70px; padding-left: 15px;"><strong>/Feeding</strong></div>     
             
             <!--Row 4-->
             <div class="ui-block-a">
                <div class="ui-grid-a leftborder rightborder">
                   <div class="ui-block-a">
-                    <input name="textinput" id="singleVolume" type="number" style="background: yellow; text-align: center; width:55px;"> 
+                    <input name="textinput" id="batchVolume" type="number" style="background: yellow; text-align: center;  width:55px;" >  
                   </div>
                   <div class="ui-block-b">
-                    <label style="text-align: center; width:20px; margin-left: 10px">qts</label>
+                    <label style="text-align: center; width:20px; margin-left: 10px">gal</label>
                   </div>
                 </div>
             </div>    
@@ -96,10 +99,10 @@
             <div class="ui-block-d">
                 <div class="ui-grid-a">
                   <div class="ui-block-a" style="width;50px;">
-                    <input name="textreadonly" id="batchVolume" type="number" readonly style="background: lightblue; text-align: center;  width:55px;" >
+                    <input name="textreadonly" id="singleVolume" type="number" style="background: lightblue; text-align: center; width:55px;">   
                   </div>      
                   <div class="ui-block-b" style="width;50px;">    
-                    <label style="text-align: center; width:20px; margin-left: 10px">gal</label>
+                    <label style="text-align: center; width:20px; margin-left: 10px">qts</label>
                   </div>
                 </div>    
             </div>    
@@ -108,7 +111,7 @@
             <div class="ui-block-a leftborder rightborder">
                <div class="ui-grid-a">
                   <div class="ui-block-a" style="width;50px;">
-                    <input name="textinput" id="singleSolidsPct" type="number" style="background: yellow; text-align: center;  width:55px;" >
+                    <input name="textinput" id="batchSolidsPct" type="number" style="background: yellow; text-align: center;  width:55px;" >
                   </div>    
                   <div class="ui-block-b" style="width;50px;">    
                     <label style="text-align: center; width:20px; margin-left: 10px">%</label>
@@ -125,7 +128,7 @@
             <div class="ui-block-a">
                 <div class="ui-grid-a leftborder rightborder bottomborder">
                   <div class="ui-block-a">
-                    <input name="textinput" id="singleSolidsAmt" type="number" style="background: yellow; text-align: center;  width:55px;" >
+                    <input name="textinput" id="batchSolidsAmt" type="number" style="background: yellow; text-align: center;  width:55px;" >  
                   </div>
                   <div class="ui-block-b">
                     <label style="text-align: center; width:20px; margin-left: 10px">lb</label>
@@ -148,7 +151,7 @@
             <div class="ui-block-d">
                 <div class="ui-grid-a">
                   <div class="ui-block-a" style="width;50px;">
-                    <input name="textreadonly" id="batchSolidsAmt" type="number" readonly style="background: lightblue; text-align: center;  width:55px;" >
+                    <input name="textreadonly" id="singleSolidsAmt" type="number" readonly style="background: lightblue; text-align: center;  width:55px;" >
                   </div>      
                   <div class="ui-block-b" style="width;50px;">    
                     <label style="text-align: center; width:20px; margin-left: 10px">lb</label>
@@ -157,18 +160,8 @@
             </div>             
 
             <!--Row 7-->
-            <div class="ui-block-a">
-                <div id="divSingleOunces" class="ui-grid-a" style="display: none;">
-                  <div class="ui-block-a">
-                    <input name="textreadonly" id="singleSolidsOunces" type="number" readonly style="background: lightblue; text-align: center;  width:55px;">
-                  </div>
-                  <div class="ui-block-b">
-                    <label style="text-align: center; width:20px; margin-left: 10px">oz</label>
-                  </div>
-                </div>
-            </div>    
-            <div class="ui-block-b" style="text-align: center; vertical-align: middle;">
-            </div>    
+            <div class="ui-block-a"></div>    
+            <div class="ui-block-b"></div>    
             <div id="divCalfOunces" class="ui-block-c" style="display: none;">
                 <div class="ui-grid-a">
                   <div class="ui-block-a" style="width;50px;">
@@ -179,15 +172,22 @@
                   </div>
                 </div>    
             </div> 
-            <div class="ui-block-d">
+            <div id="divSingleOunces" class="ui-block-d" style="display: none;">
+              <div class="ui-grid-a"> 
+                <div class="ui-block-a" style="width;50px;">   
+                    <input name="textreadonly" id="singleSolidsOunces" type="number" readonly style="background: lightblue; text-align: center;  width:55px;">
+                </div>
+                <div class="ui-block-b" style="width;50px;">    
+                    <label style="text-align: center; width:20px; margin-left: 10px">oz</label>
+                </div>    
+              </div>    
             </div>    
-         </div>    <!-- end of grid -->
+      </div> <!-- end of grid -->
         
       <div class="content" style="text-align: left;">
             <button id="btnReset" class="ui-btn ui-mini ui-btn-inline">Reset</button>
             <button id="btnCalculate" class="ui-btn ui-mini ui-btn-inline">Solve</button>
-          <button id="btnPerBatch" class="ui-btn ui-mini ui-btn-inline">Go to Per Batch Format</button>
-          <!--<button id="btnPerBatch" class="ui-btn ui-mini ui-btn-inline"><a href="perbatch.html">Go to Per Batch Format</a></button>-->
+          <button id="btnPerFeeding" class="ui-btn ui-mini ui-btn-inline">Go to Per Feeding Format</button>
       </div>
         <label id="lblMessage"  style="text-align: center; color:crimson;"></label>
         <br/>
@@ -207,10 +207,7 @@
                 <div class="ui-block-e"></div>
             </div>
         </div>
-      <label  style="text-align: center; font-size: 10px;">v1023-0645</label> 
      </div>
     </div>
-
     <script src="js/script.js"></script>
-    
 </body>    
